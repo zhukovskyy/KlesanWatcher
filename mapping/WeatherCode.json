@@ -1,0 +1,504 @@
+{
+  "Ilan": {
+    "code": "F-D0047-001",
+    "srcname": "宜蘭縣未來2天天氣預報",
+    "name": "宜蘭縣",
+    "sub": [
+      {"Luodong": "羅東鎮"},
+      {"Su-ao": "蘇澳鎮"},
+      {"Yilan": "宜蘭縣"},
+      {"Toucheng": "頭城鎮"},
+      {"Jiaosi": "礁溪鄉"
+      {"Jhuangwei": "壯圍鄉"},
+      {"Yuanshan": "員山鄉"},
+      {"Dongshan": "冬山鄉"},
+      {"Wujie": "五結鄉"},
+      {"Sansing": "三星鄉"},
+      {"Datong": "大同鄉"},
+      {"Nan-ao": "南澳鄉"}
+    ]
+  },
+  "Taoyuan": {
+    "code": "F-D0047-005",
+    "srcname": "桃園市未來2天天氣預報",
+    "name": "桃園市",
+    "sub": [
+      {"Jhongli": "中壢市"},
+      {"Dasi": "大溪鎮"},
+      {"Yangmei　": "楊梅鎮"},
+      {"Lujhu": "蘆竹鄉"},
+      {"Dayuan　": "大園鄉"},
+      {"Gueishan　": "龜山鄉"},
+      {"Bade": "八德市"},
+      {"Longtan": "龍潭鄉"},
+      {"Pingjhen": "平鎮市"},
+      {"Sinwu": "新屋鄉"},
+      {"Guanyin　": "觀音鄉"},
+      {"Fusing": "復興鄉"}
+    ]
+  },
+  "Hsinchu": {
+    "code": "F-D0047-009",
+    "srcname": "新竹縣未來2天天氣預報",
+    "name": "新竹縣",
+    "sub": [
+      {"Jhubei": "竹北市"},
+      {"Jhudong": "竹東鎮"},
+      {"Sinpu": "新埔鎮"},
+      {"Guansi": "關西鎮"},
+      {"Hukou": "湖口鄉"},
+      {"Sinfong　": "新豐鄉"},
+      {"Cyonglin": "芎林鄉"},
+      {"Hengshan": "橫山鄉"},
+      {"Beipu": "北埔鄉"},
+      {"Baoshan": "寶山鄉"},
+      {"Emei": "峨眉鄉"},
+      {"Jianshih": "尖石鄉"},
+      {"Wufong": "五峰鄉"}
+    ]
+  },
+  "Miaoli": {
+    "code": "F-D0047-013",
+    "srcname": "苗栗縣未來2天天氣預報",
+    "name": "苗栗縣",
+    "sub": [
+      {"Yuanli": "苑裡鎮"},
+      {"Tongsiao": "通霄鎮"},
+      {"Jhunan": "竹南鎮"},
+      {"Toufen": "頭份鎮"},
+      {"Houlong": "後龍鎮"},
+      {"Jhuolan": "卓蘭鎮"},
+      {"Dahu": "大湖鄉"},
+      {"Gongguan": "公館鄉"},
+      {"Tongluo": "銅鑼鄉"},
+      {"Nanjhuang ": "南庄鄉"},
+      {"Touwu": "頭屋鄉"},
+      {"Sanyi": "三義鄉"},
+      {"Sihu": "西湖鄉"},
+      {"Zaociao": "造橋鄉"},
+      {"Sanwan": "三灣鄉"},
+      {"Shihtan": "獅潭鄉"},
+      {"Tai-an":"泰安"}
+    ]
+  },
+
+  "Changhua": {
+    "code": "F-D0047-017",
+    "srcname": "彰化縣未來2天天氣預報",
+    "name": "彰化縣",
+    "sub": [
+      {"Lugang": "鹿港鎮"},
+      {"Hemei": "和美鎮"},
+      {"Siansi": "線西鄉"},
+      {"Shengang": "伸港鄉"},
+      {"Fusing": "福興鄉"},
+      {"Sioushuei": "秀水鄉"},
+      {"Huatan": "花壇鄉"},
+      {"Fenyuan": "芬園鄉"},
+      {"Yuanlin": "員林鎮"},
+      {"Sihu": "溪湖鎮"},
+      {"Tianjhong": "田中鎮"},
+      {"Dacun": "大村鄉"},
+      {"Puyan": "埔鹽鄉"},
+      {"Pusin": "埔心鄉"},
+      {"Yongjing": "永靖鄉"},
+      {"Shetou": "社頭鄉"},
+      {"Ershuei": "二水鄉"},
+      {"Beidou": "北斗鎮"},
+      {"Erlin": "二林鎮"},
+      {"Tianwei": "田尾鄉"},
+      {"Pitou": "埤頭鄉"},
+      {"Fangyuan": "芳苑鄉"},
+      {"Dacheng": "大城鄉"},
+      {"Jhutang": "竹塘鄉"},
+      {"Sijhou": "溪州鄉"}
+    ]
+  },
+  "Nantou": {
+    "code": "F-D0047-021",
+    "srcname": "南投縣未來2天天氣預報",
+    "name": "南投縣",
+    "sub": [
+      {"Puli": "埔里鎮"},
+      {"Caotun": "草屯鎮"},
+      {"Jhushan": "竹山鎮"},
+      {"Jiji": "集集鎮"},
+      {"Mingjian": "名間鄉"},
+      {"Lugu": "鹿谷鄉"},
+      {"Jhongliao": "中寮鄉"},
+      {"Yuchih": "魚池鄉"},
+      {"Guosing": "國姓鄉"},
+      {"Shueili": "水里鄉"},
+      {"Sinyi": "信義鄉"},
+      {"Ren-ai": "仁愛鄉"}
+    ]
+  },
+  "Yunlin": {
+    "code": "F-D0047-025",
+    "srcname": "雲林縣未來2天天氣預報",
+    "name": "雲林縣",
+    "sub": [
+      {"Douliou": "斗六市"},
+      {"Dounan": "斗南鎮"},
+      {"Huwei": "虎尾鄉"},
+      {"Siluo": "西螺鎮"},
+      {"Tuku": "土庫鎮"},
+      {"Beigang": "北港鎮"},
+      {"Gukeng": "古坑鄉"},
+      {"Dapi": "大埤鄉"},
+      {"Cihtong": "莿桐鄉"},
+      {"Linnei": "林內鄉"},
+      {"Erlun": "二崙鄉"},
+      {"Lunbei": "崙背鄉"},
+      {"Mailiao": "麥寮鄉"},
+      {"Dongshih": "東勢鄉"},
+      {"Baojhong": "褒忠鄉"},
+      {"Taisi": "臺西鄉"},
+      {"Yuanchang": "元長鄉"},
+      {"Sihhu": "四湖鄉"},
+      {"Kouhu": "口湖鄉"},
+      {"Shueilin": "水林鄉"}
+    ]
+  },
+  "Chiayi": {
+    "code": "F-D0047-029",
+    "srcname": "嘉義縣未來2天天氣預報",
+    "name": "嘉義縣",
+    "sub": [
+      {"Taibao": "太保市"},
+      {"Puzih": "朴子市"},
+      {"Budai": "布袋鎮"},
+      {"Dalin": "大林鎮"},
+      {"Minsyong": "民雄鄉"},
+      {"Sikou": "溪口鄉"},
+      {"Singang": "新港鄉"},
+      {"Lioujiao": "六腳鄉"},
+      {"Dongshih": "東石鄉"},
+      {"Yijhu": "義竹鄉"},
+      {"Lucao": "鹿草鄉"},
+      {"Shueishang": "水上鄉"},
+      {"Jhongpu": "中埔鄉"},
+      {"Jhuci": "竹崎鄉"},
+      {"Meishan": "梅山鄉"},
+      {"Fanlu": "番路鄉"},
+      {"Dapu": "大埔鄉"},
+      {"Alishan": "阿里山鄉"}
+    ]
+  },
+  "Pingtung": {
+    "code": "F-D0047-033",
+    "srcname": "屏東縣未來2天天氣預報",
+    "name": "屏東縣",
+    "sub": [
+      {"Chaojhou": "潮州鎮"},
+      {"Donggang": "東港鎮"},
+      {"Hengchun": "恆春鎮"},
+      {"Wandan": "萬丹鄉"},
+      {"Changjhih": "長治鄉"},
+      {"Pingtung": " 屏東縣"},
+      {"Linluo": "麟洛鄉"},
+      {"Jiouru": "九如鄉"},
+      {"Ligang": "里港鄉"},
+      {"Yanpu": "鹽埔鄉"},
+      {"Gaoshu": "高樹鄉"},
+      {"Wanluan": "萬巒鄉"},
+      {"Neipu": "內埔鄉"},
+      {"Jhutian": "竹田鄉"},
+      {"Sinpi": "新埤鄉"},
+      {"Fangliao": "枋寮鄉"},
+      {"Sinyuan": "新園鄉"},
+      {"Kanding": "崁頂鄉"},
+      {"Linbian": "林邊鄉"},
+      {"Nanjhou": "南州鄉"},
+      {"Jiadong": "佳冬鄉"},
+      {"Liouciou": "琉球鄉"},
+      {"Checheng": "車城鄉"},
+      {"Manjhou": "滿州鄉"},
+      {"Fangshan": "枋山鄉"},
+      {"Sandimen": "三地門鄉"},
+      {"Wutai": "霧臺鄉"},
+      {"Majia": "瑪家鄉"},
+      {"Taiwu": "泰武鄉"},
+      {"Laiyi": "來義鄉"},
+      {"Chunrih": "春日鄉"},
+      {"Shihzih": "獅子鄉"},
+      {"Mudan": "牡丹鄉"}
+    ]
+  },
+  "Taitung": {
+    "code": "F-D0047-037",
+    "srcname": "臺東縣未來2天天氣預報",
+    "name": "臺東縣",
+    "sub": [
+      {"Chenggong": "成功鎮"},
+      {"Guanshan": "關山鎮"},
+      {"Beinan": "卑南鄉"},
+      {"Luye": "鹿野鄉"},
+      {"Chihshang": "池上鄉"},
+      {"東河鄉": " Donghe"},
+      {"Changbin": "長濱鄉"},
+      {"Taimali": "太麻里鄉"},
+      {"Dawu": "大武鄉"},
+      {"Lyudao": "綠島鄉"},
+      {"Haiduan": "海端鄉"},
+      {"Yanping": "延平鄉"},
+      {"Jinfong": "金峰鄉"},
+      {"Jinfong": "金峰鄉"},
+      {"Daren": "達仁鄉"},
+      {"Lanyu": "蘭嶼鄉"}
+    ]
+  },
+  "Hualien": {
+    "code": "F-D0047-041",
+    "srcname": "花蓮縣未來2天天氣預報",
+    "name": "花蓮縣",
+    "sub": [
+      {"Fonglin": "鳳林鎮"},
+      {"Yuli" :"玉里鎮"},
+      {"Sincheng" :"新城鄉"},
+      {"Ji-an" :"吉安鄉"},
+      {"Shoufong" :"壽豐鄉"},
+      {"Guangfu" :"光復鄉"},
+      {"Fongbin" :"豐濱鄉"},
+      {"Rueisuei" :"瑞穗鄉"},
+      {"Fuli" :"富里鄉"},
+      {"Sioulin" :"秀林鄉"},
+      {"Wanrong" :"萬榮鄉"},
+      {"Jhuosi" :"卓溪鄉"}
+    ]
+  },
+  "Penghu": {
+    "code": "F-D0047-045",
+    "srcname": "澎湖縣未來2天天氣預報",
+    "name": "澎湖縣",
+    "sub": [
+      {"Magong" :"馬公市"},
+      {"Husi" :"湖西鄉"},
+      {"Baisha" :"白沙鄉"},
+      {"Siyu" :"西嶼鄉"},
+      {"Wang-an" :"望安鄉"},
+      {"Cimei" :"七美鄉"}
+    ]
+  },
+  "Keelung": {
+    "code": "F-D0047-049",
+    "srcname": "基隆市未來2天天氣預報",
+    "name": "基隆市",
+    "sub": [
+      {"Jhongjheng": "中正區"},
+      {"Cidu": "七堵區"},
+      {"Nuannuan": "暖暖區"},
+      {"Ren-ai": "仁愛區"},
+      {"Jhongshan": "中山區"},
+      {"Anle": "安樂區"},
+      {"Sinyi": "信義區"}
+    ]
+  },
+  "HsinchuCity": {
+    "code": "F-D0047-053",
+    "srcname": "新竹市未來2天天氣預報",
+    "name": "新竹市",
+    "sub": [
+      {"East": "東區"},
+      {"Xiangshan": "香山區"},
+      {"North ": "北區"}
+    ]
+  },
+  "ChiayiCity": {
+    "code": "F-D0047-057",
+    "srcname": "嘉義市未來2天天氣預報",
+    "name": "嘉義市",
+    "sub": [
+      {"East": "東區"},
+      {"West": "西區"}
+    ]
+  },
+  "Taipe": {
+    "code": "F-D0047-061",
+    "srcname": "臺北市未來2天天氣預報",
+    "name": "臺北市",
+    "sub": [
+      {"Songshan　": "松山區"},
+      {"Sinyi": "信義區"},
+      {"Da-an": "大安區"},
+      {"Jhongsha": "中山區"},
+      {"Jhongjheng": "中正區"},
+      {"Datong": "大同區"},
+      {"Wanhua": "萬華區"},
+      {"Wunshan": "文山區"},
+      {"Nangang": "南港區"},
+      {"Neihu": "內湖區"},
+      {"Shihlin": "士林區"},
+      {"Beito": "北投區"}
+    ]
+  },
+  "Kaohsiung": {
+    "code": "F-D0047-065",
+    "srcname": "高雄市未來2天天氣預報",
+    "name": "高雄市",
+    "sub": [
+      {"Yancheng": "鹽埕區"},
+      {"Gushan": "鼓山區"},
+      {"Zuoying": "左營區"},
+      {"Nanzih": "楠梓區"},
+      {"Sanmin": "三民區"},
+      {"Sinsing": "新興區"},
+      {"Cianjin": "前金區"},
+      {"Lingy": "苓雅區"},
+      {"Cianjhen": "前鎮區"},
+      {"Cijin": "旗津區"},
+      {"Siaogan": "小港區"},
+      {"Fongshan": "鳳山區"},
+      {"Linyuan": "林園區"},
+      {"Daliao": "大寮區"},
+      {"Dashu": "大樹區"},
+      {"Dashe": "大社區"},
+      {"Renwu": "仁武區"},
+      {"Niaosong": "鳥松區"},
+      {"Gangshan": "岡山鎮"},
+      {"Ciaotou": "橋頭區"},
+      {"Yanchao": "燕巢區"},
+      {"Tianliao": "田寮區"},
+      {"Alian": "阿蓮區"},
+      {"Lujhu": "路竹區"},
+      {"Hunei": "湖內區"},
+      {"Jiading": "茄萣區"},
+      {"Yong-an": "永安區"},
+      {"Mituo": "彌陀區"},
+      {"Zihguan": "梓官區"},
+      {"Cishan": "旗山區"},
+      {"Meinong": "美濃區"},
+      {"Liouguei": "六龜區"},
+      {"Jiasian": "甲仙區"},
+      {"Shanlin": "杉林區"},
+      {"Neimen": "內門區"},
+      {"Maolin": "茂林區"},
+      {"Taoyuan": "桃源區"},
+      {"Sanmin": "三民區"},
+    ]
+  },
+  "NewTaipei": {
+    "code": "F-D0047-069",
+    "srcname": "新北市未來2天天氣預報",
+    "name": "新北市",
+    "sub": [
+      {"Banciao": "板橋市"},
+      {"Sanchong": "三重市"},
+      {"Jhonghe": "中和市"},
+      {"Yonghe": "永和市"},
+      {"Sinjhuan": "新莊市"},
+      {"Sindian": "新店市"},
+      {"Shulin": "樹林市"},
+      {"Yingg": "鶯歌鎮"},
+      {"Sansia": "三峽鎮"},
+      {"Danshuei": "淡水鎮"},
+      {"Sijhih": "汐止市"},
+      {"Rueifan": "瑞芳鎮"},
+      {"Tucheng": "土城市"},
+      {"Lujhou　": "蘆洲市"},
+      {"Wugu": "五股鄉"},
+      {"Taisha": "泰山鄉"},
+      {"Linkou": "林口鄉"},
+      {"Shenken": "深坑鄉"},
+      {"Shihdin": "石碇鄉"},
+      {"Pingli": "坪林鄉"},
+      {"Sanjhih": "三芝鄉"},
+      {"Shihme": "石門鄉"},
+      {"Bali": "八里鄉"},
+      {"Pings": "平溪鄉"},
+      {"Jinshan": "金山鄉"},
+      {"Wanli": "萬里鄉"},
+      {"Wula": "烏來鄉"}
+    ]
+  },
+  "Taichung": {
+    "code": "F-D0047-073",
+    "srcname": "臺中市未來2天天氣預報",
+    "name": "臺中市",
+    "sub": [
+      {"West": "西區"},
+      {"Dadu": "大肚區"},
+      {"Fongyuan": "豐原區"},
+      {"Dongshih": "東勢區"},
+      {"Houli": "后里區"},
+      {"Shihgang": "石岡區"},
+      {"Sinshe": "新社區"},
+      {"Wurih": "烏日區"},
+      {"Heping": "和平區"},
+大甲鎮─Dajia Township 　
+      清水鎮─Cingshuei Township 　
+      沙鹿鎮─Shalu Township
+梧棲鎮─Wuci Township 　
+      后里鄉─Houli Township 　
+      神岡鄉─Shengang Township
+潭子鄉─Tanzih Township 　　
+      大雅鄉─Daya Township
+      新社鄉─Sinshe Township
+石岡鄉─Shihgang Township 　
+      外埔鄉─Waipu Township
+      大安鄉─Da-an Township
+烏日鄉─Wurih Township 　
+      大肚鄉─Dadu Township
+龍井鄉─Longjing Township 　
+      霧峰鄉─Wufong Township
+太平市─Taiping City 　　大里市─Dali City 　和平鄉─Heping Township
+
+    ]
+  },
+  "Tainan": {
+    "code": "F-D0047-077",
+    "srcname": "臺南市未來2天天氣預報",
+    "name": "臺南市",
+    "sub": [
+      {"Anpin": "安平區"},
+      {"Jiangjyun": "將軍區"},
+      {"Sinying": "新營區"},
+      {"Yanshuei": "鹽水區"},
+      {"Baihe": "白河區"},
+      {"Liouying": "柳營區"},
+      {"Houbi": "後壁區"},
+      {"Siaying": "下營區"},
+      {"Lioujia": "六甲區"},
+      {"Guantian": "官田區"},
+      {"Syuejia": "學甲區"},
+      {"Beimen": "北門區"},
+      {"Shanhua": "善化鎮"},
+      {"Sinshih": "新市鄉"},
+      {"Anding": "安定鄉"},
+      {"Shanshang": "山上鄉"},
+      {"Yujing": "玉井鄉"},
+      {"Nansi": "楠西鄉"},
+      {"Nanhua": "南化鄉"},
+      {"Zuojhen": "左鎮鄉"},
+      {"Rende": "仁德鄉"},
+      {"Gueiren": "歸仁鄉"},
+      {"Guanmiao": "關廟鄉"},
+      {"Longci": "龍崎鄉"},
+      {"Yongkang": "永康市"},
+    ]
+  },
+  "Lianjiang": {
+    "code": "F-D0047-081",
+    "srcname": "連江縣未來2天天氣預報",
+    "name": "連江縣",
+    "sub": [
+      {"Dongyin": "東引鄉"},
+      {"Nangan": "南竿鄉"},
+      {"Beigan": "北竿鄉"},
+      {"Juguang": "莒光鄉"}
+    ]
+  },
+  "Kinmen": {
+    "code": "F-D0047-08",
+    "srcname": "金門縣未來2天天氣預報",
+    "name": "金門縣",
+    "sub": [
+      {"Wuqiu": "烏坵鄉"},
+      {"Sands": "金沙鄉"},
+      {"GoldTahu": "金湖鄉"},
+      {"Jinning": "金寧鄉"},
+      {"KimUrban": "金城鄉"},
+      {"Lieyu": "烈嶼鄉"}
+    ]
+  }
+}
