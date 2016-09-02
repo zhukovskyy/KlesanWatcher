@@ -14,25 +14,21 @@ def init_nodes_from_xml(filename):
     """
     with open(filename, 'r') as file:
         soup = Soup(file.read(), 'lxml')
-
         locations = soup.find_all('locations')[0]
-        print(locations.locationsname.string.strip(), os.path.split(filename)[-1])
+        region, code = locations.locationsname.string.strip(), os.path.split(filename)[-1]
         location_set = soup.find_all('location')
+        driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
+        session = driver.session()
+        session.run("CREATE (:Region {name:'" + region + "', code:'" + code + "'})")
         for location in location_set:
-            print(location.geocode.string.strip(), location.locationname.string.strip())
-    # driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
-    # session = driver.session()
-
-    # session.run("CREATE (a:Person {name:'Arthur', title:'King'})")
-    #
-    # result = session.run("MATCH (a:Person) WHERE a.name = 'Arthur' RETURN a.name AS name, a.title AS title")
-    # for record in result:
-    #     print("%s %s" % (record["title"], record["name"]))
-
-    # session.close()
-    print(filename)
-
+            geocode, town = location.geocode.string.strip(), location.locationname.string.strip()
+            session.run("MATCH (a:Region {name:'" + region + "', code:'" + code + "'}) "
+                        "CREATE (a) -[:belong]-> (:town {name:'" + town + "', geocode:'" + geocode + "'})"
+                        )
+        session.close()
 
 if __name__ == '__main__':
-    init_nodes_from_xml('/home/yanganto/KlesanWatcher/data/F-D0047-001')
+    for dir_path, dir_names, files in os.walk(os.path.join(os.curdir, 'data')):
+        for file in files:
+            init_nodes_from_xml(os.path.join(dir_path, file))
 
