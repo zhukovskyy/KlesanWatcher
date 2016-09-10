@@ -1,5 +1,6 @@
 import os
 import urllib.request
+import logging
 
 from bs4 import BeautifulSoup as Soup
 from neo4j.v1 import GraphDatabase, basic_auth
@@ -19,6 +20,7 @@ def init_nodes_from_xml(filename):
     """Init the locaitons(county, such as New Taipei City),
     and location(city or township, such as Panchaio) as node into neo4j
     """
+    logging.INFO('Init data from {}'.format(filename))
     with open(filename, 'r') as file:
         soup = Soup(file.read(), 'lxml')
         locations = soup.find_all('locations')[0]
@@ -36,7 +38,11 @@ def init_nodes_from_xml(filename):
 
 
 def update_weather_from_data_id(data_id):
+    """Update the weather from CWB with DATA ID
+    """
+    logging.INFO('Update DATA ID: {}'.format(data_id))
     if not APP_KEY:
+        logging.ERROR('Lack of APP KEY')
         raise LackKeyError
     url = 'http://opendata.cwb.gov.tw/opendataapi?dataid={}&authorizationkey={}'.format(data_id, APP_KEY)
     response = urllib.request.urlopen(url)
@@ -55,10 +61,11 @@ def update_weather_from_data_id(data_id):
         session.run("MATCH (t:Town {geocode:'" + location.geocode.string.strip() + "'})"
                     "SET t.brief='" + brief(descriptions) + "'")
 
+
 def brief(descriptions):
-    """shorten the 3 day weather description into a text message (75 letters)
+    """Shorten the 3 day weather description into a text message (75 letters)
     """
-    # TODO:
+    # TODO: Implement the brief message
 
     # list of 2016-09-03T09:00:00+08:00
     start_times = [e.string.strip() for e in descriptions.find_all('starttime')]
@@ -69,8 +76,8 @@ def brief(descriptions):
     return values[0]
 
 if __name__ == '__main__':
-    # for dir_path, dir_names, files in os.walk(os.path.join(os.curdir, 'data')):
-    #     for file in files:
-    #         init_nodes_from_xml(os.path.join(dir_path, file))
-    update_weather_from_data_id('F-D0047-001')
+    for dir_path, dir_names, files in os.walk(os.path.join(os.curdir, 'data')):
+        for file in files:
+            init_nodes_from_xml(os.path.join(dir_path, file))
+    #update_weather_from_data_id('F-D0047-001')
 
