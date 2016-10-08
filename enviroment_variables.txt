@@ -1,0 +1,10 @@
+NEO4J_DB_PATH:
+    a db loaction default is 'bolt://localhost'
+NEO4J_DB_USER:
+    a neo4j db user default is 'neo4j'
+NEO4J_DB_PW:
+    a neo4j db password default is 'neo4j'
+SMS_SERVICE_NUMBER:
+    a sms service phone number such as '+886935874443' for TWN Mobile
+SLACK_API
+    a slack api token such as "xoxp-00000000000-00000000000-00000000000-0000000000"
