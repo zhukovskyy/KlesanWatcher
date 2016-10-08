@@ -8,3 +8,5 @@ SMS_SERVICE_NUMBER:
     a sms service phone number such as '+886935874443' for TWN Mobile
 SLACK_API
     a slack api token such as "xoxp-00000000000-00000000000-00000000000-0000000000"
+CWB_API
+	a CWB api token such as "CWB-00000000-0000-0000-0000-000000000000" 

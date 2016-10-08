@@ -9,7 +9,7 @@ from neo4j.v1 import GraphDatabase, basic_auth
 NEO4J_DB_PATH = os.environ.get('NEO4J_DB_PATH ', 'bolt://localhost')
 NEO4J_DB_USER = os.environ.get('NEO4J_DB_USER ', 'neo4j')
 NEO4J_DB_PW = os.environ.get('NEO4J_DB_PW', 'neo4j')
-APP_KEY = os.environ.get('appkey', None)
+APP_KEY = os.environ.get('CWB_API', None)
 
 
 class LackKeyError(PermissionError):
@@ -20,7 +20,7 @@ def init_nodes_from_xml(filename):
     """Init the locaitons(county, such as New Taipei City),
     and location(city or township, such as Panchaio) as node into neo4j
     """
-    logging.INFO('Init data from {}'.format(filename))
+    logging.info('Init data from {}'.format(filename))
     with open(filename, 'r') as file:
         soup = Soup(file.read(), 'lxml')
         locations = soup.find_all('locations')[0]
@@ -38,7 +38,7 @@ def init_nodes_from_xml(filename):
 
 
 def update_weather_from_data_id(data_id):
-    """Update the weather from CWB with DATA ID
+    """Update the weather from CWB with DATA ID, ex: F-D0047-001
     """
     logging.INFO('Update DATA ID: {}'.format(data_id))
     if not APP_KEY:
@@ -76,8 +76,15 @@ def brief(descriptions):
     return values[0]
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG, format='LINE %(lineno)-4d  %(levelname)-8s %(message)s',
+                        datefmt='%m-%d %H:%M')
+    console = logging.StreamHandler()
+    console.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('LINE %(lineno)-4d : %(levelname)-8s %(message)s')
+    console.setFormatter(formatter)
+    logging.getLogger('').addHandler(console)
+
     for dir_path, dir_names, files in os.walk(os.path.join(os.curdir, 'data')):
         for file in files:
             init_nodes_from_xml(os.path.join(dir_path, file))
-    #update_weather_from_data_id('F-D0047-001')
 
