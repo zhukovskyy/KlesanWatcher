@@ -16,7 +16,7 @@ class SlackLogHandle(logging.StreamHandler):
     def emit(self, record):
         slack_api_key = os.environ.get('SLACK_API')
         slack = Slacker(slack_api_key)
-        slack.chat.post_message('#klesan_log', record.msg)
+        slack.chat.post_message('#klesan_log', record.msg % record.args)
 
 def app_factory(name=None):
     app = Flask(name or __name__)
