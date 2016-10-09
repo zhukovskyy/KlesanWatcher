@@ -16,7 +16,7 @@ class SlackLogHandle(logging.StreamHandler):
     def emit(self, record):
         slack_api_key = os.environ.get('SLACK_API')
         slack = Slacker(slack_api_key)
-        slack.chat.post_message('#klesan_log', record.msg % record.args)
+        slack.chat.post_message('#klesan_log', "[%s]" % record.levelname + record.msg % record.args)
 
 def app_factory(name=None):
     app = Flask(name or __name__)
@@ -33,9 +33,11 @@ if __name__ == '__main__':
     formatter = logging.Formatter('LINE %(lineno)-4d : %(levelname)-8s %(message)s')
     console.setFormatter(formatter)
     logging.getLogger('').addHandler(console)
-    slack_log = SlackLogHandle()
-    slack_log.setLevel(logging.INFO)
-    logging.getLogger('').addHandler(slack_log)
+
+    if not os.environ.get('DEV', None):
+        slack_log = SlackLogHandle()
+        slack_log.setLevel(logging.INFO)
+        logging.getLogger('').addHandler(slack_log)
 
     logging.info('Ready to start...')
 
@@ -53,7 +55,6 @@ if __name__ == '__main__':
     http_server.listen(8080)
 
     def regular_job_runner():
-        print('fdf')
         runner = ServiceRunner(config={})
         runner.add_service(RegularJobs)
         runner.start()

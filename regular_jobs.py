@@ -2,6 +2,8 @@ from nameko.timer import timer
 from datetime import datetime
 import logging
 
+from location_parser import update_weather_from_data_id
+
 
 class RegularJobs(object):
     name = "regular_job"
@@ -19,6 +21,13 @@ class RegularJobs(object):
         """update the weather from cwb
         """
         logging.info('Updating weather from CWB')
+        with open('cwb_data_id.txt', 'r') as f:
+            for line in f:
+                data_id = line.strip()
+                try:
+                    update_weather_from_data_id(data_id)
+                except:
+                    logging.error('Updating weather from {} fail'.format(data_id))
 
     def update_sms_msg(self):
         """geting the sms msg"""

@@ -14,6 +14,7 @@ APP_KEY = os.environ.get('CWB_API', None)
 
 class LackKeyError(PermissionError):
     """Lack of the Key for connection, please set up in environment"""
+    pass
 
 
 def init_nodes_from_xml(filename):
@@ -40,7 +41,7 @@ def init_nodes_from_xml(filename):
 def update_weather_from_data_id(data_id):
     """Update the weather from CWB with DATA ID, ex: F-D0047-001
     """
-    logging.INFO('Update DATA ID: {}'.format(data_id))
+    logging.info('Update DATA ID: {}'.format(data_id))
     if not APP_KEY:
         logging.ERROR('Lack of APP KEY')
         raise LackKeyError
