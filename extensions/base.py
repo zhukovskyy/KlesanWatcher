@@ -16,6 +16,6 @@ def help():
     return render_template('base/help.html')
 
 
-@app.route('/sms_test/<phone_num>/<msg>', methods=['POST'])
+@app.route('/sms_test/<phone_number>/<msg>', methods=['POST'])
 def sms_test(phone_number, msg):
     return str(send(phone_number, msg))
