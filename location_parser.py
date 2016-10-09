@@ -1,6 +1,7 @@
 import os
 import urllib.request
 import logging
+import sys
 
 from bs4 import BeautifulSoup as Soup
 from neo4j.v1 import GraphDatabase, basic_auth
@@ -42,25 +43,29 @@ def update_weather_from_data_id(data_id):
     """Update the weather from CWB with DATA ID, ex: F-D0047-001
     """
     logging.info('Update DATA ID: {}'.format(data_id))
-    if not APP_KEY:
-        logging.ERROR('Lack of APP KEY')
-        raise LackKeyError
-    url = 'http://opendata.cwb.gov.tw/opendataapi?dataid={}&authorizationkey={}'.format(data_id, APP_KEY)
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    xml = data.decode('utf-8')
-    soup = Soup(xml, 'lxml')
-    driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
-    session = driver.session()
-    session.run("MATCH (r:Region {data_id:'" + data_id + "'})"
-                "SET r.issue_time='" + soup.find('issuetime').string.strip() + "'")
+    try:
+        if not APP_KEY:
+            logging.error('Lack of APP KEY')
+            raise LackKeyError
+        url = 'http://opendata.cwb.gov.tw/opendataapi?dataid={}&authorizationkey={}'.format(data_id, APP_KEY)
+        response = urllib.request.urlopen(url)
+        data = response.read()
+        xml = data.decode('utf-8')
+        soup = Soup(xml, 'lxml')
+        driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
+        session = driver.session()
+        session.run("MATCH (r:Region {data_id:'" + data_id + "'})"
+                    "SET r.issue_time='" + soup.find('issuetime').string.strip() + "'")
 
-    for location in soup.find_all('location'):
-        for e in location.find_all('weatherelement'):
-            if e.elementname.string.strip() == 'WeatherDescription':
-                descriptions = e
-        session.run("MATCH (t:Town {geocode:'" + location.geocode.string.strip() + "'})"
-                    "SET t.brief='" + brief(descriptions) + "'")
+        for location in soup.find_all('location'):
+            for e in location.find_all('weatherelement'):
+                if e.elementname.string.strip() == 'WeatherDescription':
+                    descriptions = e
+            session.run("MATCH (t:Town {geocode:'" + location.geocode.string.strip() + "'})"
+                        "SET t.brief='" + brief(descriptions) + "'")
+    except Exception as e:
+        logging.error('Fail to update DATA ID: {}'.format(data_id))
+        logging.error(str(e))
 
 
 def brief(descriptions):

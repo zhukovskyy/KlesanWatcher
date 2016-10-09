@@ -24,10 +24,7 @@ class RegularJobs(object):
         with open('cwb_data_id.txt', 'r') as f:
             for line in f:
                 data_id = line.strip()
-                try:
-                    update_weather_from_data_id(data_id)
-                except:
-                    logging.error('Updating weather from {} fail'.format(data_id))
+                update_weather_from_data_id(data_id)
 
     def update_sms_msg(self):
         """geting the sms msg"""
