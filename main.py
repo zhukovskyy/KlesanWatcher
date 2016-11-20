@@ -13,9 +13,9 @@ import os
 from util import slack
 
 
-class SlackLogHandle(logging.StreamHandler):
-    def emit(self, record):
-        slack.log("[%s]" % record.levelname + record.msg % record.args)
+# class SlackLogHandle(logging.StreamHandler):
+#     def emit(self, record):
+#         slack.log("[%s]" % record.levelname + record.msg % record.args)
 
 
 def app_factory(name=None):
@@ -34,10 +34,10 @@ if __name__ == '__main__':
     console.setFormatter(formatter)
     logging.getLogger('').addHandler(console)
 
-    if not os.environ.get('DEV', None):
-        slack_log = SlackLogHandle()
-        slack_log.setLevel(logging.INFO)
-        logging.getLogger('').addHandler(slack_log)
+    # if not os.environ.get('DEV', None):
+    #     slack_log = SlackLogHandle()
+    #     slack_log.setLevel(logging.INFO)
+    #     logging.getLogger('').addHandler(slack_log)
 
     logging.info('Ready to start...')
 
