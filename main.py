@@ -15,11 +15,7 @@ from util import slack
 
 class SlackLogHandle(logging.StreamHandler):
     def emit(self, record):
-<<<<<<< HEAD
         slack.log("[%s]" % record.levelname + record.msg % record.args)
-=======
-        slack.log('#klesan_log', "[%s]" % record.levelname + record.msg % record.args)
->>>>>>> master
 
 
 def app_factory(name=None):
