@@ -8,15 +8,15 @@ from nameko.runners import ServiceRunner
 from regular_jobs import RegularJobs
 import threading
 import logging
-from slacker import Slacker
 import os
+
+from util import slack
 
 
 class SlackLogHandle(logging.StreamHandler):
     def emit(self, record):
-        slack_api_key = os.environ.get('SLACK_API')
-        slack = Slacker(slack_api_key)
-        slack.chat.post_message('#klesan_log', "[%s]" % record.levelname + record.msg % record.args)
+        slack.log("[%s]" % record.levelname + record.msg % record.args)
+
 
 def app_factory(name=None):
     app = Flask(name or __name__)
