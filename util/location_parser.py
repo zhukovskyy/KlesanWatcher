@@ -2,6 +2,7 @@ import os
 import urllib.request
 import logging
 import sys
+import re
 
 from bs4 import BeautifulSoup as Soup
 from neo4j.v1 import GraphDatabase, basic_auth
@@ -39,7 +40,7 @@ def init_nodes_from_xml(filename):
         session.close()
 
 
-def update_weather_from_data_id(data_id):
+def update_weather_from_data_id(data_id, insert_db=True):
     """Update the weather from CWB with DATA ID, ex: F-D0047-001
     """
     logging.info('Update DATA ID: {}'.format(data_id))
@@ -52,20 +53,29 @@ def update_weather_from_data_id(data_id):
         data = response.read()
         xml = data.decode('utf-8')
         soup = Soup(xml, 'lxml')
-        driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
-        session = driver.session()
-        session.run("MATCH (r:Region {data_id:'" + data_id + "'})"
-                    "SET r.issue_time='" + soup.find('issuetime').string.strip() + "'")
+        if insert_db:
+            driver = GraphDatabase.driver(NEO4J_DB_PATH, auth=basic_auth(NEO4J_DB_USER, NEO4J_DB_PW))
+            session = driver.session()
+            session.run("MATCH (r:Region {data_id:'" + data_id + "'})"
+                        "SET r.issue_time='" + soup.find('issuetime').string.strip() + "'")
+        else:
+            out = []
 
         for location in soup.find_all('location'):
             for e in location.find_all('weatherelement'):
                 if e.elementname.string.strip() == 'WeatherDescription':
                     descriptions = e
-            session.run("MATCH (t:Town {geocode:'" + location.geocode.string.strip() + "'})"
-                        "SET t.brief='" + brief(descriptions) + "'")
+                    break
+            if insert_db:
+                session.run("MATCH (t:Town {geocode:'" + location.geocode.string.strip() + "'})"
+                            "SET t.brief='" + brief(descriptions) + "'")
+            else:
+                out.append(brief(descriptions))
     except Exception as e:
         logging.error('Fail to update DATA ID: {}'.format(data_id))
         logging.error(str(e))
+    if not insert_db:
+        return out
 
 
 def brief(descriptions):
@@ -78,8 +88,8 @@ def brief(descriptions):
     end_times = [e.string.strip() for e in descriptions.find_all('endtime')]
 
     # list of 多雲。 降雨機率 10%。 溫度攝氏25度。 舒適。 偏北風 平均風速0至1級(每秒1公尺)。 相對濕度為73%。
-    values = [e.string.strip() for e in descriptions.find_all('value')]
-    return values[0]
+    ran_rates = [re.search('\d{1,3}', e.string.strip().split("。")[1]).group() for e in descriptions.find_all('value')]
+    return ','.join(ran_rates)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG, format='LINE %(lineno)-4d  %(levelname)-8s %(message)s',

@@ -2,7 +2,7 @@ from nameko.timer import timer
 from datetime import datetime
 import logging
 
-from location_parser import update_weather_from_data_id
+from util.location_parser import update_weather_from_data_id
 
 
 class RegularJobs(object):
