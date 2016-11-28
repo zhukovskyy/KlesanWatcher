@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Klesan Watcher</title>
+    <style>
+
+    html {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      margin: 0px;
+    }
+
+    .loading {
+      font-size: large;
+    }
+
+    #loading {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loadingFont {
+      font-size: xx-large;
+    }
+
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css' />
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="app">
+        <div id="loading" class="loading center">
+            <div style="text-align: center;">
+                <h1>Klesan Watcher</h1>
+                <p>我們希望每個上山的朋友都能平安下山</p>
+                <p id="version"></p>
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        function reqListener () {
+          document.getElementById('version').innerHTML = "Version: " + this.responseText
+        };
+        var oReq = new XMLHttpRequest();
+        oReq.onload = reqListener;
+        oReq.open("get", "/api/base/version", true);
+        oReq.send();
+    </script>
+    <script src="/build.js"></script>
+</body>
+</html>

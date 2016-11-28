@@ -1,16 +1,17 @@
-from tornado.httpserver import HTTPServer
-from tornado.wsgi import WSGIContainer
-from tornado.ioloop import IOLoop
-from tornado.web import Application, FallbackHandler, StaticFileHandler
-from extensions import base
-from flask import Flask
-from nameko.runners import ServiceRunner
-from regular_jobs import RegularJobs
 import threading
 import logging
 import os
 
+from flask import Flask
+from nameko.runners import ServiceRunner
+from tornado.httpserver import HTTPServer
+from tornado.wsgi import WSGIContainer
+from tornado.ioloop import IOLoop
+from tornado.web import Application, FallbackHandler, StaticFileHandler
+
 from util import slack
+from api import base
+from regular_jobs import RegularJobs
 
 
 # class SlackLogHandle(logging.StreamHandler):
@@ -48,8 +49,9 @@ if __name__ == '__main__':
 
     tornado_app = Application(
         [
-            # (r"/statics/(.*)", StaticFileHandler, dict(path=app_path + "/statics/")),
-            ('.*', FallbackHandler, dict(fallback=wsgi_container)),
+            ('/', FallbackHandler, dict(fallback=wsgi_container)),
+            ('/api/(.*)', FallbackHandler, dict(fallback=wsgi_container)),
+            ("/(.*)", StaticFileHandler, dict(path=os.path.dirname(os.path.realpath(__file__)) + "/public/"))
         ])
     http_server = HTTPServer(tornado_app)
     http_server.listen(8080)
