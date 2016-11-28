@@ -8,10 +8,10 @@ from util.location_parser import update_weather_from_data_id
 class RegularJobs(object):
     name = "regular_job"
 
-    @timer(interval=10)
+    @timer(interval=60)
     def jobs(self):
         now = datetime.now()
-        if not now.hour % 3 and not now.minute and now.second < 10:
+        if not now.hour % 3 and not now.minute:
             self.update_weather()
 
         self.update_sms_msg()
