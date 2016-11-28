@@ -45,11 +45,14 @@
         </div>
     </div>
     <script>
-        function reqListener () {
-          document.getElementById('version').innerHTML = "Version: " + this.responseText
-        };
         var oReq = new XMLHttpRequest();
-        oReq.onload = reqListener;
+        oReq.onload = function(){
+          var version_tag = document.getElementById('version');
+          if(version_tag)
+            version_tag.innerHTML = "Version: " + this.responseText
+          else
+            console.log("Version: " + this.responseText)
+          };
         oReq.open("get", "/api/base/version", true);
         oReq.send();
     </script>
