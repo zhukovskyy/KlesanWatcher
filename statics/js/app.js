@@ -5,21 +5,20 @@ var Example = require('./vue/SubscribeForm.vue')
 
 const store = new Vuex.Store({
   state: {
-    ajax_data: ""
+    regions: []
   },
   mutations: {
-    showBackendValue(state, a_text) {
-      state.ajax_data = a_text
+    setResgions(state, regions) {
+      state.regions = regions
     }
   },
   actions: {
     getData(context) {
       fetch('/regions.json').then(function(response) {
           return response.json().then(function(json) {
-            console.log(json);
-            context.commit('showBackendValue', 'got it')
+            context.commit('setResgions', json)
           },
-          () => context.commit('showBackendValue', "Error")
+          () => context.commit('setResgions', {})
         );
       });
     }

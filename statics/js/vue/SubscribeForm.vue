@@ -3,7 +3,13 @@
         <h1>預定天氣預報簡訊:</h1>
         <input type="date" name="date" v-bind:value="date" v-bind:min="setToday()">
         <input type="tel" name="tel" v-bind:value="phone">
-        <p>{{ value }}</p>
+        <select v-model="geocode">
+          <optgroup v-for="r in regions" v-bind:label="r.region">
+            <option v-for="t in r.regions" v-bind:value="t.geocode">
+              {{ t.town }}
+            </option>
+          </optgroup>
+      </select>
     </div>
 </template>
 <script>
@@ -28,8 +34,8 @@ module.exports = {
     setToday: _setToday
   },
   computed: {
-    value() {
-      return this.$store.state.ajax_data
+    regions() {
+      return this.$store.state.regions
     }
   }
 }
